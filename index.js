@@ -18,14 +18,14 @@ app.use("/static", express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 
-//connection to db
+// Connect to the MongoDB using Mongoose and the DB_CONNECT environment variable from the .env file
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, err => {
     if(err) throw err;
     console.log("Connected to db!");
     app.listen(process.env.PORT || 3120, () => console.log("Server Up and running"));
 });
 
-// view engine configuration
+// View engine configuration
 app.set("view engine", "ejs");
 
 // GET METHOD

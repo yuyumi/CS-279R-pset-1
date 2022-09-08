@@ -4,6 +4,8 @@
 
 Download all the files and on the console, go inside the location of the folder containing all the downloaded files.
 
+Install all the dependencies (`express, ejs, dotenv, mongoose`) using `npm install`
+
 Type `npm start` to run the application.
 
 The webapp can be accessed via `http://localhost:3120/`
