@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, err => {
     if(err) throw err;
     console.log("Connected to db!");
-    app.listen(3120, () => console.log("Server Up and running"));
+    app.listen(process.env.PORT || 3120, () => console.log("Server Up and running"));
 });
 
 // view engine configuration
