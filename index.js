@@ -1,13 +1,18 @@
+// Import express, dotenv, and mongoose packages
 const express = require("express");
-const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
-//models
+// Create an application using Express
+const app = express();
+
+// Import the TodoTask mongoose model
 const TodoTask = require("./models/TodoTask");
 
+// Read the .env file
 dotenv.config();
 
+// 
 app.use("/static", express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
