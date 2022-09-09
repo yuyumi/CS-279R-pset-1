@@ -126,3 +126,10 @@ body {
     cursor:pointer;
     text-decoration: none;
 }
+
+.todo-list-item .star-filled {
+    color : rgb(249, 249, 1);
+    margin-right: 10px;
+    cursor:pointer;
+    text-decoration: none;
+}
