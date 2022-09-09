@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <head>
     <title>Todo App</title>
+
+    <!-- Import stylesheets -->
     <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 <body>
@@ -14,18 +16,32 @@
                 <input type="text" name="content">
                 <button type="submit"><span class="fas fa-plus"></span></button>
             </form>
+
+            <!-- To-Do List -->
             <ul class="todo-list">
+
+                <!-- Iterate over each todoTask from MongoDB (variable defined in get methods of index.js)-->
                 <% todoTasks.forEach(details => { %>
+
+                    <!-- If the id of the task matches the id queried by the edit button, change the display format of the to-do item into an edit input box -->
                     <% if (details._id == idTask) { %>
                         <li class="todo-list-item">
+
+                            <!-- HTML form that submits the input content to a new url route that is used by the index.js to update MongoDB -->
                             <form action="/edit/<%= details._id %>" method="POST">
+
+                                <!-- Default text in the input box is the old name of the to-do task -->
                                 <input type="text" value="<%= details.content %>" name="content">
                                 <button type="submit">Confirm</button>
                                 <a href="/" class="cancel">Cancel</a>
                             </form>
                         </li>
                     <% } else { %>
+
+                        <!-- HTML display format of each to-do list item-->
                         <li class="todo-list-item">
+
+                            <!-- Check if the item is marked as important, fill in the star icon if it is, else leave the star icon unfilled -->
                             <% if (details.star) {%>
                                 <a href="/nostar/<%= details._id %>" class="star-filled">
                                     <span class="fas fa-star"></span>
@@ -35,7 +51,11 @@
                                     <span class="fas fa-star"></span>
                                 </a>
                             <%}%>
+
+                            <!-- Display the to-do item name via the content field of the to-do item pulled from MongoDB -->
                             <div class="todo-list-item-name"><%= details.content %></div>
+
+                            <!-- Edit and Delete Buttons that link to another page when clicked on (creates a route that is used by index.js)-->
                             <a href="/edit/<%= details._id %>" class="edit"> <span class="fas fa-edit"></span>
                             </a>
                             <a href="/remove/<%= details._id %>" class="remove"> <span class="fas fa-times"></span>
