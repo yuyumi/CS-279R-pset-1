@@ -26,7 +26,7 @@
                         </li>
                     <% } else { %>
                         <li class="todo-list-item">
-                            <a href="/star/<%= details._id %>" class=<% if (details.star) {%>"star-filled"<%} else {%>"star">
+                            <a href="/star/<%= details._id %>" class=<% if (details.star) {%>"star-filled"<%} else {%>"star"<%}%>>
                                 <span class="fas fa-star"></span>
                             </a>
                             <div class="todo-list-item-name"><%= details.content %></div>
