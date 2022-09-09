@@ -12,16 +12,21 @@ const TodoTask = require("./models/TodoTask");
 // Read the .env file
 dotenv.config();
 
-// 
+// Allow access to the stylesheet
 app.use("/static", express.static("public"));
 
+// Allows us to extract data from the html form
 app.use(express.urlencoded({ extended: true }));
 
 
 // Connect to the MongoDB using Mongoose and the DB_CONNECT environment variable from the .env file
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, err => {
     if(err) throw err;
+
+    // Print a statement in the console if no errors thrown
     console.log("Connected to db!");
+
+    // Host the application on the 3120 port of localhost and listen to it
     app.listen(process.env.PORT || 3120, () => console.log("Server Up and running"));
 });
 
@@ -30,6 +35,8 @@ app.set("view engine", "ejs");
 
 // GET METHOD
 app.get("/", (req, res) => {
+
+        // Look for previous to-do tasks stored in MongoDB and render them into the to-do list
         TodoTask.find({}, (err, tasks) => {
         res.render("todo.ejs", { todoTasks: tasks });
     });
@@ -37,9 +44,13 @@ app.get("/", (req, res) => {
 
 //POST METHOD
 app.post('/',async (req, res) => {
-        const todoTask = new TodoTask({
+
+    // Make a new TodoTask model using the request content as the content field
+    const todoTask = new TodoTask({
         content: req.body.content
     });
+
+    // Save the model onto MongoDB and return to index page
     try {
         await todoTask.save();
         res.redirect("/");
