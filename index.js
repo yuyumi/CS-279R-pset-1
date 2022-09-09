@@ -88,7 +88,16 @@ app.route("/remove/:id").get((req, res) => {
 // STAR (Marks as important)
 app.route("/star/:id").get((req, res) => {
     const id = req.params.id;
-    TodoTask.findByIdAndUpdate(id, { star: !req.body.star }, err => {
+    TodoTask.findByIdAndUpdate(id, { star: true }, err => {
+        if (err) return res.send(500, err);
+        res.redirect("/");
+    });
+});
+
+// REMOVE STAR (Mark as not important)
+app.route("/nostar/:id").get((req, res) => {
+    const id = req.params.id;
+    TodoTask.findByIdAndUpdate(id, { star: false }, err => {
         if (err) return res.send(500, err);
         res.redirect("/");
     });

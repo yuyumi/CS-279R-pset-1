@@ -128,7 +128,7 @@ body {
 }
 
 .todo-list-item .star-filled {
-    color : rgb(204, 204, 0);
+    color : rgb(255,221,51);
     margin-right: 10px;
     cursor:pointer;
     text-decoration: none;

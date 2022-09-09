@@ -12,8 +12,8 @@ Click the green pencil icon on a to-do task to edit the task name.
 
 Click the red "x" icon to delete a to-do task.
 
+Click the white star icon to mark a task as important, click the yellow star to mark a task as unimportant.
+
 ## Code Citation
 
 Derived from Diogo Pinheiro's tutorials on MongoDB [Chapter 1](https://medium.com/@diogo.fg.pinheiro/simple-to-do-list-app-with-node-js-and-mongodb-chapter-1-c645c7a27583) [Chapter 2](https://medium.com/@diogo.fg.pinheiro/simple-to-do-list-app-with-node-js-and-mongodb-chapter-2-3780a1c5b039)
-
-Sorting algorithm derived from 
