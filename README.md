@@ -2,17 +2,15 @@
 
 ## How to Start
 
-Download all the files and on the console, go inside the location of the folder containing all the downloaded files.
+The webapp can be accessed via `https://cs-279r-pset1.herokuapp.com/`
 
-Install all the dependencies (`express, ejs, dotenv, mongoose`) using `npm install`
+## How to Use
 
-Type `npm start` to run the application.
+Type in any item you wish to put in a To-Do list, and press "enter" or click on the green "+" button to add it to the To-Do list.
 
-The webapp can be accessed via `http://localhost:3120/`
+Click the green pencil icon on a to-do task to edit the task name.
 
-## File Descriptions
-
-`index.js` 
+Click the red "x" icon to delete a to-do task.
 
 ## Code Citation
 

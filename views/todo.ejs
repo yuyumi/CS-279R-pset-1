@@ -24,6 +24,9 @@ integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7
             <ul class="todo-list">
                 <% todoTasks.forEach(details => { %>
                     <li class="todo-list-item">
+                        <a href="/star/<%= details._id %>" class="star">
+                            <span class="fas fa-star"></span>
+                        </a>
                         <div class="todo-list-item-name"><%= details.content %></div>
                         <a href="/edit/<%= details._id %>" class="edit">
                             <span class="fas fa-edit"></span>
